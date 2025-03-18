@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --vh: 1vh;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Swiper容器 */
+.swiper-container {
+    width: 100vw;
+    height: 100vh; /* 回退 */
+    height: calc(var(--vh, 1vh) * 100); /* 使用CSS变量 */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.swiper-slide {
+    width: 100vw;
+    height: 100vh; /* 回退 */
+    height: calc(var(--vh, 1vh) * 100); /* 使用CSS变量 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-slide img {
+    width: 100vw;
+    height: 100vh; /* 回退 */
+    height: calc(var(--vh, 1vh) * 100); /* 使用CSS变量 */
+    /* 使用fill而非cover，确保图片拉伸填充整个视口 */
+    object-fit: fill;
+    user-select: none;
+    -webkit-user-drag: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* 固定翻页按钮样式 */
+.fixed-next-btn {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.fixed-next-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 在最后一页隐藏下一页按钮 */
+.fixed-next-btn.hidden {
+    display: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* 音乐按钮样式 */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    padding: 10px 20px;
+    background: rgba(76, 175, 80, 0.8);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    user-select: none;
+}
+
+.music-btn:hover {
+    background: rgba(69, 160, 73, 0.8);
+}
+
+.music-btn.playing {
+    background: rgba(244, 67, 54, 0.8);
+} 

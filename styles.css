@@ -66,13 +66,21 @@ html, body {
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s, box-shadow 0.3s;
     animation: pulse 2s infinite;
+    /* 防止按钮初始化时闪烁位移 */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
+    transform: translateX(-50%) translateZ(0);
+    -webkit-transform: translateX(-50%) translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .fixed-next-btn:hover {
     background: rgba(255, 255, 255, 1);
     transform: translateX(-50%) scale(1.05);
+    -webkit-transform: translateX(-50%) scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -90,6 +98,19 @@ html, body {
     }
     100% {
         transform: translateX(-50%) scale(1);
+    }
+}
+
+/* 为了兼容性，添加webkit前缀的动画 */
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: translateX(-50%) scale(1);
+    }
+    50% {
+        -webkit-transform: translateX(-50%) scale(1.05);
+    }
+    100% {
+        -webkit-transform: translateX(-50%) scale(1);
     }
 }
 

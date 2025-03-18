@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>图片轮播与音乐播放</title>
+    <!-- 预加载图片，避免加载闪烁 -->
+    <link rel="preload" href="https://a.u.h5mc.com/c/kufl/mpye/images/674f3b14b51220f77302ed0a.png" as="image">
+    <link rel="preload" href="https://cdn1.u.h5mc.com/c/kufl/mpye/images/674f3b14619a73991f01b8ee.png" as="image">
+    <link rel="preload" href="https://cdn1.u.h5mc.com/c/kufl/mpye/images/674f3b154710be839200c428.png" as="image">
+    <!-- 预加载音频 -->
+    <link rel="preload" href="https://a.u.h5mc.com/c/kufl/mpye/audios/674f3a747fb2d90a500017f4.mp3" as="audio">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- 确保样式在DOM渲染前加载完成 -->
+    <style>
+        .fixed-next-btn {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .fixed-next-btn.ready {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <!-- Swiper -->
@@ -31,5 +49,14 @@
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
+    
+    <!-- 页面加载完成后显示按钮 -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('nextBtn').classList.add('ready');
+            }, 100);
+        });
+    </script>
 </body>
 </html> 

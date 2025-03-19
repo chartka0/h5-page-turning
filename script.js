@@ -159,27 +159,32 @@ document.addEventListener('DOMContentLoaded', function() {
     setViewportHeight();
 
     // 音乐播放功能
-    const musicBtn = document.getElementById('musicBtn');
+    const musicControl = document.getElementById('musicControl');
+    const musicOpenIcon = document.getElementById('musicOpenIcon');
+    const musicCloseIcon = document.getElementById('musicCloseIcon');
     const audio = new Audio('https://a.u.h5mc.com/c/kufl/mpye/audios/674f3a747fb2d90a500017f4.mp3');
 
-    musicBtn.addEventListener('click', () => {
+    // 音乐控制点击事件
+    musicControl.addEventListener('click', () => {
         if (audio.paused) {
             audio.play().catch(e => {
                 console.log('音频播放失败:', e);
                 alert('音频播放失败，请尝试点击屏幕后再播放');
             });
-            musicBtn.textContent = '暂停音乐';
-            musicBtn.classList.add('playing');
+            // 显示关闭图标，隐藏打开图标
+            musicOpenIcon.classList.add('hidden');
+            musicCloseIcon.classList.remove('hidden');
         } else {
             audio.pause();
-            musicBtn.textContent = '播放音乐';
-            musicBtn.classList.remove('playing');
+            // 显示打开图标，隐藏关闭图标
+            musicOpenIcon.classList.remove('hidden');
+            musicCloseIcon.classList.add('hidden');
         }
     });
 
-    // 音乐播放结束时重置按钮状态
+    // 音乐播放结束时重置图标状态
     audio.addEventListener('ended', () => {
-        musicBtn.textContent = '播放音乐';
-        musicBtn.classList.remove('playing');
+        musicOpenIcon.classList.remove('hidden');
+        musicCloseIcon.classList.add('hidden');
     });
 }); 

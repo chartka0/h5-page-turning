@@ -57,94 +57,96 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    padding: 12px 30px;
-    background: rgba(255, 255, 255, 0.8);
-    color: #333;
+    width: 40px;
+    height: 40px;
+    background: transparent;
     border: none;
-    border-radius: 30px;
-    font-size: 16px !important;
-    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, box-shadow 0.3s;
-    animation: pulse 2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fade-bounce 2s infinite;
     /* 防止按钮初始化时闪烁位移 */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: transform;
     transform: translateX(-50%) translateZ(0);
     -webkit-transform: translateX(-50%) translateZ(0);
-    -webkit-font-smoothing: subpixel-antialiased;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-text-size-adjust: none;
 }
 
-.fixed-next-btn:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: translateX(-50%) scale(1.05);
-    -webkit-transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.next-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
 }
 
-/* 在最后一页隐藏下一页按钮 */
-.fixed-next-btn.hidden {
-    display: none;
+.fixed-next-btn:hover .next-icon {
+    transform: rotate(90deg) scale(1.1);
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
 }
 
-@keyframes pulse {
+@keyframes fade-bounce {
     0% {
-        transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+        transform: translateX(-50%) translateY(0);
     }
     50% {
-        transform: translateX(-50%) scale(1.05);
+        opacity: 1;
+        transform: translateX(-50%) translateY(-10px);
     }
     100% {
-        transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+        transform: translateX(-50%) translateY(0);
     }
 }
 
 /* 为了兼容性，添加webkit前缀的动画 */
-@-webkit-keyframes pulse {
+@-webkit-keyframes fade-bounce {
     0% {
-        -webkit-transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+        -webkit-transform: translateX(-50%) translateY(0);
     }
     50% {
-        -webkit-transform: translateX(-50%) scale(1.05);
+        opacity: 1;
+        -webkit-transform: translateX(-50%) translateY(-10px);
     }
     100% {
-        -webkit-transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+        -webkit-transform: translateX(-50%) translateY(0);
     }
 }
 
-/* 音乐按钮样式 */
-.music-btn {
+/* 音乐控制样式 */
+.music-control {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 100;
-    padding: 10px 20px;
-    background: rgba(76, 175, 80, 0.8);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 14px !important;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    transition: background-color 0.3s;
     user-select: none;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-text-size-adjust: none;
 }
 
-.music-btn:hover {
-    background: rgba(69, 160, 73, 0.8);
+.music-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-.music-btn.playing {
-    background: rgba(244, 67, 54, 0.8);
+.music-icon:hover {
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* 移除旧的音乐按钮样式 */
+.music-btn {
+    display: none;
 } 

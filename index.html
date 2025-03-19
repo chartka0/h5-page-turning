@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>泰州海陵产城融合发展集团有限公司投资指南</title>
-    <!-- 预加载图片，避免加载闪烁 -->
-    <link rel="preload" href="https://a.u.h5mc.com/c/kufl/mpye/images/674f3b14b51220f77302ed0a.png" as="image">
-    <link rel="preload" href="https://cdn1.u.h5mc.com/c/kufl/mpye/images/674f3b14619a73991f01b8ee.png" as="image">
-    <link rel="preload" href="https://cdn1.u.h5mc.com/c/kufl/mpye/images/674f3b154710be839200c428.png" as="image">
-    <!-- 预加载音频 -->
-    <link rel="preload" href="https://a.u.h5mc.com/c/kufl/mpye/audios/674f3a747fb2d90a500017f4.mp3" as="audio">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
     <!-- 确保样式在DOM渲染前加载完成 -->
     <style>
@@ -30,81 +25,74 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="./images/plan2/1.jpg" alt="图片1">
+                <img src="./images/plan1/0001.jpg" alt="图片1">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/2.jpg" alt="图片2">
+                <img src="./images/plan1/0002.jpg" alt="图片2">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/3.jpg" alt="图片3">
+                <img src="./images/plan1/0003.jpg" alt="图片3">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/4.jpg" alt="图片4">
+                <img src="./images/plan1/0004.jpg" alt="图片4">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/5.jpg" alt="图片5">
+                <img src="./images/plan1/0005.jpg" alt="图片5">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/6.jpg" alt="图片6">
+                <img src="./images/plan1/0006.jpg" alt="图片6">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/7.jpg" alt="图片7">
+                <img src="./images/plan1/0007.jpg" alt="图片7">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/8.jpg" alt="图片8">
+                <img src="./images/plan1/0008.jpg" alt="图片8">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/9.jpg" alt="图片9">
+                <img src="./images/plan1/0009.jpg" alt="图片9">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/10.jpg" alt="图片10">
+                <img src="./images/plan1/0010.jpg" alt="图片10">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/11.jpg" alt="图片11">
+                <img src="./images/plan1/0011.jpg" alt="图片11">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/12.jpg" alt="图片12">
+                <img src="./images/plan1/0012.jpg" alt="图片12">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/13.jpg" alt="图片13">
+                <img src="./images/plan1/0013.jpg" alt="图片13">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/14.jpg" alt="图片14">
+                <img src="./images/plan1/0014.jpg" alt="图片14">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/15.jpg" alt="图片15">
+                <img src="./images/plan1/0015.jpg" alt="图片15">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/16.jpg" alt="图片16">
+                <img src="./images/plan1/0016.jpg" alt="图片16">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/17.jpg" alt="图片17">
+                <img src="./images/plan1/0017.jpg" alt="图片17">
             </div>
             <div class="swiper-slide">
-                <img src="./images/plan2/18.jpg" alt="图片18">
-            </div>
-            <div class="swiper-slide">
-                <img src="./images/plan2/19.jpg" alt="图片19">
-            </div>
-            <div class="swiper-slide">
-                <img src="./images/plan2/20.jpg" alt="图片20">
-            </div>
-            <div class="swiper-slide">
-                <img src="./images/plan2/21.jpg" alt="图片21">
-            </div>
-            <div class="swiper-slide">
-                <img src="./images/plan2/22.jpg" alt="图片22">
+                <img src="./images/plan1/0018.jpg" alt="图片18">
             </div>
         </div>
     </div>
 
     <!-- 固定的下一页按钮 -->
-    <button id="nextBtn" class="fixed-next-btn">下一页</button>
+    <div id="nextBtn" class="fixed-next-btn">
+        <img src="./images/icon/up.png" alt="下一页" class="next-icon">
+    </div>
     
     <!-- 音乐播放按钮 -->
-    <button id="musicBtn" class="music-btn">播放音乐</button>
+    <div id="musicControl" class="music-control">
+        <img src="./images/icon/open.png" alt="播放音乐" class="music-icon" id="musicOpenIcon">
+        <img src="./images/icon/close.png" alt="暂停音乐" class="music-icon hidden" id="musicCloseIcon">
+    </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
     
     <!-- 页面加载完成后显示按钮 -->

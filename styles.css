@@ -72,6 +72,9 @@ html, body {
     will-change: transform;
     transform: translateX(-50%) translateZ(0);
     -webkit-transform: translateX(-50%) translateZ(0);
+    /* 去除点击时的黑色阴影 */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 .next-icon {
@@ -125,10 +128,13 @@ html, body {
     top: 20px;
     right: 20px;
     z-index: 100;
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     user-select: none;
+    /* 去除点击时的黑色阴影 */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 .music-icon {

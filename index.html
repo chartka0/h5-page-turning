@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="styles.css">
     <!-- 确保样式在DOM渲染前加载完成 -->
     <style>
+        * {
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
         .fixed-next-btn {
             opacity: 0;
             visibility: hidden;
@@ -102,6 +108,25 @@
                 document.getElementById('nextBtn').classList.add('ready');
             }, 100);
         });
+
+        // 防止双指缩放
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+
+        // 防止双击缩放
+        document.addEventListener('touchend', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        });
+
+        // 防止双指缩放
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 </html> 
